@@ -33,7 +33,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="eliminarbtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="eliminartodobtn" min="-2" max="-2" attributes="0"/>
+                      <Component id="AgregarUser" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="modificarbtn" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -60,7 +60,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="insertar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="eliminarbtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="eliminartodobtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="AgregarUser" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="modificarbtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -128,12 +128,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eliminarbtnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="eliminartodobtn">
+    <Component class="javax.swing.JButton" name="AgregarUser">
       <Properties>
-        <Property name="text" type="java.lang.String" value="eliminar todo"/>
+        <Property name="text" type="java.lang.String" value="Agregar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eliminartodobtnActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregarUserActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="modificarbtn">

@@ -19,11 +19,13 @@ public class Productos extends javax.swing.JInternalFrame {
     PreparedStatement pst;
     ResultSet rs;
     int idc = 0;
+    int productId;
 
     public Productos() {
         initComponents();
         this.setSize(656, 333);
         this.setResizable(false);
+        productId = 0;
     }
 
     void retrieve() {
@@ -84,7 +86,7 @@ public class Productos extends javax.swing.JInternalFrame {
             } else {
                 String query = "insert into producto(nombre, precio, cantidad)"
                         + // aqui igual se fija si los nombres son iguales a la base de datos
-                        "values ('" + na_value +  "', '" + pr_value + "', '" + st_value + "')";
+                        "values ('" + na_value + "', '" + pr_value + "', '" + st_value + "')";
 
                 connection = conn.getConexion();
                 pst = connection.prepareStatement(query);
@@ -126,59 +128,65 @@ public class Productos extends javax.swing.JInternalFrame {
         String na_value = name.getText();
         String pr_value = price.getText();
         String st_value = stock.getText();
-        String nomsearch=JOptionPane.showInputDialog("ingrese un nombre");
+        String nomsearch = JOptionPane.showInputDialog("ingrese un nombre");
         if (name.getText().equals(nomsearch)) {
-             try {
-            if (na_value.equals("") || pr_value.equals("") || st_value.equals("")) {
-                JOptionPane.showMessageDialog(null, "Hay campos sin datos");
-                clean_table();
-            } else {
-                String query = "update proyecto_final_cliente set nombre='" + na_value + "', precio='" + pr_value
-                        + "', cantidad='" + st_value + "' where id=" + model.getColumnName(idc);
+            try {
+                if (na_value.equals("") || pr_value.equals("") || st_value.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Hay campos sin datos");
+                    clean_table();
+                } else {
+                    String query = "update proyecto_final_cliente set nombre='" + na_value + "', precio='" + pr_value
+                            + "', cantidad='" + st_value + "' where id=" + model.getColumnName(idc);
 
-                connection = conn.getConexion();
-                pst = connection.prepareStatement(query);
-                pst.executeUpdate(query);
+                    connection = conn.getConexion();
+                    pst = connection.prepareStatement(query);
+                    pst.executeUpdate(query);
 
-                JOptionPane.showMessageDialog(null, "Producto modificado exitosamente");
-                clean_table();
-            }
-        } catch (Exception e) {
-            System.out.println("Error while adding data: " + e.getMessage());
-            JOptionPane.showMessageDialog(null, "Error al modificar Producto");
-            clean_table();
-        } finally {
-            if (pst != null) {
-                try {
-                    pst.close();
-                } catch (SQLException error) {
-                    error.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Producto modificado exitosamente");
+                    clean_table();
                 }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException error) {
-                    error.printStackTrace();
+            } catch (Exception e) {
+                System.out.println("Error while adding data: " + e.getMessage());
+                JOptionPane.showMessageDialog(null, "Error al modificar Producto");
+                clean_table();
+            } finally {
+                if (pst != null) {
+                    try {
+                        pst.close();
+                    } catch (SQLException error) {
+                        error.printStackTrace();
+                    }
+                }
+                if (connection != null) {
+                    try {
+                        connection.close();
+                    } catch (SQLException error) {
+                        error.printStackTrace();
+                    }
                 }
             }
         }
     }
-        }
-
-       
 
     void delete() {
-        int row = results.getSelectedRow();
+        
+        int productId = Integer.parseInt(Id_Txt.getText());
+
         try {
-            if (row < 0) {
+
+            if (productId < 0) {
                 JOptionPane.showMessageDialog(null, "No hay una fila seleccionada");
             } else {
-                String query = "delete from producto where id=?" + idc; //se fija en el nombre del proyecto que este bien
+                String query = "DELETE FROM producto WHERE id = ?";
 
                 connection = conn.getConexion();
                 pst = connection.prepareStatement(query);
-                pst.executeUpdate(query);
+
+                // Set the value for the parameter
+                pst.setInt(1, productId);
+
+                // Use executeUpdate without passing the query again
+                pst.executeUpdate();
 
                 JOptionPane.showMessageDialog(null, "Producto eliminado exitosamente");
                 clean_table();
@@ -186,7 +194,7 @@ public class Productos extends javax.swing.JInternalFrame {
         } catch (Exception e) {
             clean_table();
         } finally {
-            if (pst != null) {
+           if (pst != null) {
                 try {
                     pst.close();
                 } catch (SQLException error) {
@@ -251,13 +259,14 @@ public class Productos extends javax.swing.JInternalFrame {
         add = new javax.swing.JButton();
         clean = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        id1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         name = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         price = new javax.swing.JTextField();
         stock = new javax.swing.JTextField();
+        Id_Txt = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         jLabel8.setText("Id:");
 
@@ -318,10 +327,6 @@ public class Productos extends javax.swing.JInternalFrame {
 
         jLabel9.setText("Id:");
 
-        id1.setEditable(false);
-        id1.setBackground(new java.awt.Color(204, 204, 204));
-        id1.setEnabled(false);
-
         jLabel3.setText("Nombre:");
 
         name.addActionListener(new java.awt.event.ActionListener() {
@@ -339,6 +344,14 @@ public class Productos extends javax.swing.JInternalFrame {
                 priceActionPerformed(evt);
             }
         });
+
+        Id_Txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Id_TxtActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Solo para eliminar de momento");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -361,13 +374,16 @@ public class Productos extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel3))
                                 .addGap(36, 36, 36)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(id1, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                                    .addComponent(name))
-                                .addGap(31, 31, 31)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))))
+                                    .addComponent(jLabel1)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                                            .addComponent(Id_Txt))
+                                        .addGap(31, 31, 31)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel5))))))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
@@ -385,13 +401,14 @@ public class Productos extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(id1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                    .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Id_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -416,18 +433,26 @@ public class Productos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
-        modify();       
+        modify();
         clean_text();
     }//GEN-LAST:event_editActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        add();       
+        add();
         clean_text();
     }//GEN-LAST:event_addActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+
+    String productIdText = Id_Txt.getText();
+    try {     
+        productId = Integer.parseInt(productIdText);      
         delete();
-        clean_text();
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Por favor, ingrese un ID de producto válido.");
+   }
+    
+    Id_Txt.setText("");
     }//GEN-LAST:event_deleteActionPerformed
 
     private void priceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceActionPerformed
@@ -435,22 +460,27 @@ public class Productos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_priceActionPerformed
 
     private void cleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cleanActionPerformed
-       clean_text();
+        clean_text();
     }//GEN-LAST:event_cleanActionPerformed
 
     private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameActionPerformed
 
+    private void Id_TxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Id_TxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Id_TxtActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Id_Txt;
     private javax.swing.JButton add;
     private javax.swing.JButton clean;
     private javax.swing.JButton delete;
     private javax.swing.JButton edit;
     private javax.swing.JTextField id;
-    private javax.swing.JTextField id1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

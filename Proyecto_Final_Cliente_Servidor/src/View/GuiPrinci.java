@@ -25,7 +25,6 @@ public class GuiPrinci extends javax.swing.JFrame {
         this.setSize(487, 463);
 
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,6 +40,8 @@ public class GuiPrinci extends javax.swing.JFrame {
         contraseñaTxt = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Testconn = new javax.swing.JButton();
 
@@ -73,6 +74,12 @@ public class GuiPrinci extends javax.swing.JFrame {
 
         jLabel2.setText("Contraseña");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+
+        jLabel3.setText("Email momentaneo:sebaw");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+
+        jLabel4.setText("Contraseña default momentanea:123");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 340, 330));
 
@@ -108,16 +115,17 @@ public class GuiPrinci extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        Consultas consultas = new Consultas();
+        if (emailTxt.getText().equals("sebaw" )&& contraseñaTxt.getText().equals("123")) {
+            Consultas consultas = new Consultas();
         if (emailTxt.getText()!=null) {
             consultas.guardarUsuario(emailTxt.getText(), contraseñaTxt.getText());
         }else{
-            System.out.println("JAJAJAAJA");
+            System.out.println("No se pudo realizar la pticion intente de nuevo");
         }       
         this.setVisible(false);
         PostLogin1 Post = new PostLogin1();
         Post.setVisible(true);
+        }           
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void emailTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTxtActionPerformed
@@ -175,6 +183,8 @@ public class GuiPrinci extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

@@ -3,19 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package View;
-
 import Model.Connector;
-import java.awt.event.ActionEvent;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.sql.Types;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 public class Usuarios extends javax.swing.JInternalFrame {
     Connector conn=new Connector();       	
     Connection connection = conn.getConexion();
+    PreparedStatement pst;
     DefaultTableModel model;
     Statement st;
     ResultSet rs;
@@ -23,84 +24,97 @@ public class Usuarios extends javax.swing.JInternalFrame {
         initComponents();
         retrieve();
     }
-   public void retrieve(){
+  void retrieve() {
+        clean_table();
         String query = "select * from user";
-        
+
         try {
-            st = connection.createStatement();
-            rs = st.executeQuery(query);
-            Object[] user = new Object[3];
+            connection = conn.getConexion();
+            pst = connection.prepareStatement(query);
+            rs = pst.executeQuery(query);
+            Object[] User = new Object[3];
             model = (DefaultTableModel) userTable.getModel();
             while (rs.next()) {
-                user[0] = rs.getString("id");
-                user[1] = rs.getString("email");                
-                user[2] = rs.getInt("password");
+                User[0] = rs.getInt("id");
+                User[1] = rs.getString("email");
+                User[2] = rs.getInt("password");
                 
-                
-                model.addRow(user);
+
+                model.addRow(User);
             }
             userTable.setModel(model);
-        } catch (Exception e){
-            System.out.println("Error while retrieving data: "+ e.getMessage());
-        }
-        finally {
-            //Esto nos limpia los resultados obtenidos al ejecutar la consulta
-            if(rs != null)
-            {
-                try
-                {
+        } catch (Exception e) {
+            System.out.println("Error while retrieving data: " + e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
                     rs.close();
-                }
-                catch(SQLException error)
-                {
+                } catch (SQLException error) {
                     error.printStackTrace();
                 }
             }
-            //Vamos a limpiar la memoria destinada para la consulta
-            if(st != null)
-            {
-                try
-                {
-                    st.close();
-                }
-                catch(SQLException error)
-                {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException error) {
                     error.printStackTrace();
                 }
             }
-            //Vamos a cerrar la conexión
-            if(connection != null)
-            {
-                try
-                {
+            if (connection != null) {
+                try {
                     connection.close();
-                }
-                catch(SQLException error)
-                {
+                } catch (SQLException error) {
                     error.printStackTrace();
                 }
             }
         }
     }
-   public void deleteUser(int userId, Connection connection) {
-    String query = "DELETE FROM user WHERE id = ?";
-    
-    try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-        preparedStatement.setInt(1, userId);
-        
-        int rowsAffected = preparedStatement.executeUpdate();
-        
-        if (rowsAffected > 0) {
-            System.out.println("Usuario eliminado exitosamente");
-            connection.commit(); // Confirmar la transacción
-        } else {
-            System.out.println("No se encontró el usuario con ID: " + userId);
+  
+    void clean_table() {
+        for (int i = 0; i < userTable.getRowCount(); i++) {
+            model.removeRow(i);
+            i = i - 1;
         }
-    } catch (SQLException e) {
-        System.out.println("Error al eliminar el usuario: " + e.getMessage());
-        // Manejar la excepción sin realizar rollback aquí
     }
-}
+       void delete() { 
+        int userId = Integer.parseInt(userIdTF.getText());
+
+        try {
+
+            if (userId < 0) {
+                JOptionPane.showMessageDialog(null, "No hay una fila seleccionada");
+            } else {
+                String query = "DELETE FROM user WHERE id = ?";
+
+                connection = conn.getConexion();
+                pst = connection.prepareStatement(query);
+                pst.setInt(1, userId);
+                pst.executeUpdate();
+
+                JOptionPane.showMessageDialog(null, "usuario eliminado exitosamente");
+                clean_table();
+            }
+        } catch (Exception e) {
+            clean_table();
+        } finally {
+           if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException error) {
+                    error.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException error) {
+                    error.printStackTrace();
+                }
+            }
+        }
+    }
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -114,7 +128,7 @@ public class Usuarios extends javax.swing.JInternalFrame {
         userTable = new javax.swing.JTable();
         insertar = new javax.swing.JButton();
         eliminarbtn = new javax.swing.JButton();
-        eliminartodobtn = new javax.swing.JButton();
+        AgregarUser = new javax.swing.JButton();
         modificarbtn = new javax.swing.JButton();
         userIdTF = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -147,10 +161,10 @@ public class Usuarios extends javax.swing.JInternalFrame {
             }
         });
 
-        eliminartodobtn.setText("eliminar todo");
-        eliminartodobtn.addActionListener(new java.awt.event.ActionListener() {
+        AgregarUser.setText("Agregar");
+        AgregarUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminartodobtnActionPerformed(evt);
+                AgregarUserActionPerformed(evt);
             }
         });
 
@@ -171,7 +185,7 @@ public class Usuarios extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(eliminarbtn)
                         .addGap(18, 18, 18)
-                        .addComponent(eliminartodobtn)
+                        .addComponent(AgregarUser)
                         .addGap(18, 18, 18)
                         .addComponent(modificarbtn))
                     .addGroup(layout.createSequentialGroup()
@@ -192,7 +206,7 @@ public class Usuarios extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(insertar)
                     .addComponent(eliminarbtn)
-                    .addComponent(eliminartodobtn)
+                    .addComponent(AgregarUser)
                     .addComponent(modificarbtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -201,27 +215,30 @@ public class Usuarios extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void eliminartodobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminartodobtnActionPerformed
+    private void AgregarUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarUserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_eliminartodobtnActionPerformed
+    }//GEN-LAST:event_AgregarUserActionPerformed
 
     private void insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarActionPerformed
        retrieve();
     }//GEN-LAST:event_insertarActionPerformed
 
     private void eliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarbtnActionPerformed
-   try {
-        int userId = Integer.parseInt(userIdTF.getText());
-        deleteUser(userId, connection);  // Pasa la conexión como parámetro
-    } catch (NumberFormatException ex) {
-        System.out.println("Ingrese un ID de usuario válido");
-    }
+    String productIdText = userIdTF.getText();
+    try {     
+        productIdText = (productIdText);      
+        delete();
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Por favor, ingrese un ID de User valido.");
+   }
+    
+    userIdTF.setText("");
     }//GEN-LAST:event_eliminarbtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AgregarUser;
     private javax.swing.JButton eliminarbtn;
-    private javax.swing.JButton eliminartodobtn;
     private javax.swing.JButton insertar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
