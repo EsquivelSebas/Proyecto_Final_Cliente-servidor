@@ -10,12 +10,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-
-/**
- *
- * @author sebaw
- */
+import javax.swing.table.DefaultTableModel;
+import View.Usuarios;
 public class Consultas {
+    Connector conn=new Connector();       	
+    Connection connection = conn.getConexion();
+    DefaultTableModel model;
+    Statement st;
+    ResultSet rs;
     public void guardarUsuario(String usuario, String password){
         Connector db = new Connector();
         String sql = "insert into user(email, password) values ('" + usuario +"', '" + password +"');";
@@ -31,4 +33,65 @@ public class Consultas {
             System.out.println(e);
         }
     }
+    /*
+    public void retrieve(){
+        String query = "select * from producto";
+        
+        try {
+            st = connection.createStatement();
+            rs = st.executeQuery(query);
+            Object[] estudiante = new Object[7];
+            model = (DefaultTableModel) userTable.;
+            while (rs.next()) {
+                estudiante[0] = rs.getInt("id");
+                estudiante[1] = rs.getString("nombre");                
+                estudiante[2] = rs.getDouble("precio");
+                estudiante[3] = rs.getInt("cantidad");
+                
+                model.addRow(estudiante);
+            }
+            results.setModel(model);
+        } catch (Exception e){
+            System.out.println("Error while retrieving data: "+ e.getMessage());
+        }
+        finally {
+            //Esto nos limpia los resultados obtenidos al ejecutar la consulta
+            if(rs != null)
+            {
+                try
+                {
+                    rs.close();
+                }
+                catch(SQLException error)
+                {
+                    error.printStackTrace();
+                }
+            }
+            //Vamos a limpiar la memoria destinada para la consulta
+            if(st != null)
+            {
+                try
+                {
+                    st.close();
+                }
+                catch(SQLException error)
+                {
+                    error.printStackTrace();
+                }
+            }
+            //Vamos a cerrar la conexión
+            if(connection != null)
+            {
+                try
+                {
+                    connection.close();
+                }
+                catch(SQLException error)
+                {
+                    error.printStackTrace();
+                }
+            }
+        }
+    }
+*/
 }

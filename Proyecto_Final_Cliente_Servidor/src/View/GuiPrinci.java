@@ -42,6 +42,7 @@ public class GuiPrinci extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        Testconn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(141, 71, 1));
@@ -77,15 +78,28 @@ public class GuiPrinci extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(225, 226, 228));
 
+        Testconn.setBackground(java.awt.Color.darkGray);
+        Testconn.setText("Testear conexion");
+        Testconn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TestconnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(192, Short.MAX_VALUE)
+                .addComponent(Testconn)
+                .addGap(180, 180, 180))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(Testconn)
+                .addGap(0, 435, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 460));
@@ -109,6 +123,15 @@ public class GuiPrinci extends javax.swing.JFrame {
     private void emailTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTxtActionPerformed
 
     }//GEN-LAST:event_emailTxtActionPerformed
+
+    private void TestconnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TestconnActionPerformed
+        if(connection == null){
+            JOptionPane.showMessageDialog(null, "Connection error");
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Connection was successful");
+        }
+    }//GEN-LAST:event_TestconnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,6 +169,7 @@ public class GuiPrinci extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Testconn;
     private javax.swing.JTextField contraseñaTxt;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JButton jButton1;
