@@ -5,9 +5,11 @@
 package View;
 
 import Model.Connector;
+import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -19,6 +21,7 @@ public class Usuarios extends javax.swing.JInternalFrame {
     ResultSet rs;
     public Usuarios() {
         initComponents();
+        retrieve();
     }
    public void retrieve(){
         String query = "select * from user";
@@ -79,6 +82,25 @@ public class Usuarios extends javax.swing.JInternalFrame {
             }
         }
     }
+   public void deleteUser(int userId, Connection connection) {
+    String query = "DELETE FROM user WHERE id = ?";
+    
+    try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        preparedStatement.setInt(1, userId);
+        
+        int rowsAffected = preparedStatement.executeUpdate();
+        
+        if (rowsAffected > 0) {
+            System.out.println("Usuario eliminado exitosamente");
+            connection.commit(); // Confirmar la transacción
+        } else {
+            System.out.println("No se encontró el usuario con ID: " + userId);
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al eliminar el usuario: " + e.getMessage());
+        // Manejar la excepción sin realizar rollback aquí
+    }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -94,6 +116,8 @@ public class Usuarios extends javax.swing.JInternalFrame {
         eliminarbtn = new javax.swing.JButton();
         eliminartodobtn = new javax.swing.JButton();
         modificarbtn = new javax.swing.JButton();
+        userIdTF = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -117,6 +141,11 @@ public class Usuarios extends javax.swing.JInternalFrame {
         });
 
         eliminarbtn.setText("eliminar");
+        eliminarbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarbtnActionPerformed(evt);
+            }
+        });
 
         eliminartodobtn.setText("eliminar todo");
         eliminartodobtn.addActionListener(new java.awt.event.ActionListener() {
@@ -127,26 +156,39 @@ public class Usuarios extends javax.swing.JInternalFrame {
 
         modificarbtn.setText("modificar");
 
+        jLabel1.setText("ID");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(insertar)
-                .addGap(18, 18, 18)
-                .addComponent(eliminarbtn)
-                .addGap(18, 18, 18)
-                .addComponent(eliminartodobtn)
-                .addGap(18, 18, 18)
-                .addComponent(modificarbtn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(insertar)
+                        .addGap(18, 18, 18)
+                        .addComponent(eliminarbtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(eliminartodobtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(modificarbtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(userIdTF, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(92, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userIdTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(insertar)
                     .addComponent(eliminarbtn)
@@ -167,13 +209,24 @@ public class Usuarios extends javax.swing.JInternalFrame {
        retrieve();
     }//GEN-LAST:event_insertarActionPerformed
 
+    private void eliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarbtnActionPerformed
+   try {
+        int userId = Integer.parseInt(userIdTF.getText());
+        deleteUser(userId, connection);  // Pasa la conexión como parámetro
+    } catch (NumberFormatException ex) {
+        System.out.println("Ingrese un ID de usuario válido");
+    }
+    }//GEN-LAST:event_eliminarbtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton eliminarbtn;
     private javax.swing.JButton eliminartodobtn;
     private javax.swing.JButton insertar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton modificarbtn;
+    private javax.swing.JTextField userIdTF;
     private javax.swing.JTable userTable;
     // End of variables declaration//GEN-END:variables
 }
