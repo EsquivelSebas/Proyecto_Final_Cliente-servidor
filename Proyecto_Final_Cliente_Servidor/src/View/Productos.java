@@ -1,4 +1,5 @@
 package View;
+
 import Model.Connector;
 import java.sql.Connection;
 import java.sql.Date;
@@ -11,12 +12,14 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Productos extends javax.swing.JInternalFrame {
-    Connector conn=new Connector();       	
+
+    Connector conn = new Connector();
     Connection connection = conn.getConexion();
     DefaultTableModel model;
     PreparedStatement pst;
     ResultSet rs;
     int idc = 0;
+
     public Productos() {
         initComponents();
         this.setSize(656, 333);
@@ -24,7 +27,8 @@ public class Productos extends javax.swing.JInternalFrame {
     }
 
     void retrieve() {
-        String query = "select * from proyecto_final_cliente";
+        clean_table();
+        String query = "select * from producto";
 
         try {
             connection = conn.getConexion();
@@ -35,7 +39,7 @@ public class Productos extends javax.swing.JInternalFrame {
             while (rs.next()) {
                 producto[0] = rs.getInt("id");
                 producto[1] = rs.getString("nombre");
-                producto[2] = rs.getString("precio");  // vea que asi con esos nombres esten igual a la basa de datos
+                producto[2] = rs.getInt("precio");
                 producto[3] = rs.getString("cantidad");
 
                 model.addRow(producto);
@@ -78,9 +82,9 @@ public class Productos extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Hay campos sin datos");
                 clean_table();
             } else {
-                String query = "insert into proyecto_final_cliente(nombre, precio, cantidad)"
+                String query = "insert into producto(nombre, precio, cantidad)"
                         + // aqui igual se fija si los nombres son iguales a la base de datos
-                        "values ('" + na_value + "', '" + pr_value + "', '" + st_value + "')";
+                        "values ('" + na_value +  "', '" + pr_value + "', '" + st_value + "')";
 
                 connection = conn.getConexion();
                 pst = connection.prepareStatement(query);
@@ -122,14 +126,15 @@ public class Productos extends javax.swing.JInternalFrame {
         String na_value = name.getText();
         String pr_value = price.getText();
         String st_value = stock.getText();
-
-        try {
+        String nomsearch=JOptionPane.showInputDialog("ingrese un nombre");
+        if (name.getText().equals(nomsearch)) {
+             try {
             if (na_value.equals("") || pr_value.equals("") || st_value.equals("")) {
                 JOptionPane.showMessageDialog(null, "Hay campos sin datos");
                 clean_table();
             } else {
                 String query = "update proyecto_final_cliente set nombre='" + na_value + "', precio='" + pr_value
-                        + "', cantidad='" + st_value + "' where id=" + idc;
+                        + "', cantidad='" + st_value + "' where id=" + model.getColumnName(idc);
 
                 connection = conn.getConexion();
                 pst = connection.prepareStatement(query);
@@ -159,6 +164,9 @@ public class Productos extends javax.swing.JInternalFrame {
             }
         }
     }
+        }
+
+       
 
     void delete() {
         int row = results.getSelectedRow();
@@ -166,7 +174,7 @@ public class Productos extends javax.swing.JInternalFrame {
             if (row < 0) {
                 JOptionPane.showMessageDialog(null, "No hay una fila seleccionada");
             } else {
-                String query = "delete from proyecto_final_cliente where id=" + idc; //se fija en el nombre del proyecto que este bien
+                String query = "delete from producto where id=?" + idc; //se fija en el nombre del proyecto que este bien
 
                 connection = conn.getConexion();
                 pst = connection.prepareStatement(query);
@@ -204,7 +212,6 @@ public class Productos extends javax.swing.JInternalFrame {
         name.requestFocus();
     }
     // </editor-fold>
-
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
@@ -303,6 +310,11 @@ public class Productos extends javax.swing.JInternalFrame {
         });
 
         clean.setText("Limpiar");
+        clean.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cleanActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Id:");
 
@@ -311,6 +323,12 @@ public class Productos extends javax.swing.JInternalFrame {
         id1.setEnabled(false);
 
         jLabel3.setText("Nombre:");
+
+        name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Precio:");
 
@@ -398,20 +416,31 @@ public class Productos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
-        // TODO add your handling code here:
+        modify();       
+        clean_text();
     }//GEN-LAST:event_editActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        // TODO add your handling code here:
+        add();       
+        clean_text();
     }//GEN-LAST:event_addActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
-        // TODO add your handling code here:
+        delete();
+        clean_text();
     }//GEN-LAST:event_deleteActionPerformed
 
     private void priceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_priceActionPerformed
+
+    private void cleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cleanActionPerformed
+       clean_text();
+    }//GEN-LAST:event_cleanActionPerformed
+
+    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
