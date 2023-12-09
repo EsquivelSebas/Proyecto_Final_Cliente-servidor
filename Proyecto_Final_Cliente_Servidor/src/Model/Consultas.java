@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import View.Usuarios;
 public class Consultas {
     Connector conn=new Connector();       	
     Connection connection = conn.getConexion();
@@ -33,6 +32,23 @@ public class Consultas {
             System.out.println(e);
         }
     }
+    public boolean checkUserCredentials(String username, String password) {       
+        String query = "SELECT * FROM user WHERE email = ? AND password = ?";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+
+            try (ResultSet rs = preparedStatement.executeQuery()) {
+                return rs.next();
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        }
+    }
+    
     /*
     public void retrieve(){
         String query = "select * from producto";
