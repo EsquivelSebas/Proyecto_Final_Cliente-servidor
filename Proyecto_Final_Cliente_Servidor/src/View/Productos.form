@@ -210,7 +210,7 @@
           <Color blue="ff" green="ff" red="cc" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/View/icons8-broom-16.png"/>
+          <Image iconType="3" name="/Images/icons8-broom-16.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Clean"/>
       </Properties>
@@ -297,7 +297,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="63" green="20" red="1" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cantidad:"/>
+        <Property name="text" type="java.lang.String" value="Quantity"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -366,7 +366,7 @@
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/View/6204a337101f29a2b14dffd576fc32b3.png"/>
+          <Image iconType="3" name="/Images/6204a337101f29a2b14dffd576fc32b3.png"/>
         </Property>
       </Properties>
       <Constraints>

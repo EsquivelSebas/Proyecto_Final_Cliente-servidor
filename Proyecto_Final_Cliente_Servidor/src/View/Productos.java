@@ -343,7 +343,7 @@ public class Productos extends javax.swing.JInternalFrame {
 
         clean.setBackground(new java.awt.Color(1, 32, 99));
         clean.setForeground(new java.awt.Color(204, 255, 255));
-        clean.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons8-broom-16.png"))); // NOI18N
+        clean.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-broom-16.png"))); // NOI18N
         clean.setText("Clean");
         clean.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -378,7 +378,7 @@ public class Productos extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(1, 32, 99));
-        jLabel5.setText("Cantidad:");
+        jLabel5.setText("Quantity");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, -1));
 
         price.setBackground(new java.awt.Color(1, 32, 99));
@@ -404,7 +404,7 @@ public class Productos extends javax.swing.JInternalFrame {
         getContentPane().add(Id_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 6, 213, -1));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 0, -1, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/6204a337101f29a2b14dffd576fc32b3.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/6204a337101f29a2b14dffd576fc32b3.png"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 150));
 
         pack();
