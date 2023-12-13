@@ -75,7 +75,7 @@ public class Productos extends javax.swing.JInternalFrame {
     }
 
     void add() {
-        String na_value = name.getText();
+        String na_value = nameproductos.getText();
         String pr_value = price.getText();
         String st_value = stock.getText();
 
@@ -125,11 +125,11 @@ public class Productos extends javax.swing.JInternalFrame {
     }
 
     void modify() {
-        String na_value = name.getText();
+        String na_value = nameproductos.getText();
         String pr_value = price.getText();
         String st_value = stock.getText();
         String nomsearch = JOptionPane.showInputDialog("ingrese un nombre");
-        if (name.getText().equals(nomsearch)) {
+        if (nameproductos.getText().equals(nomsearch)) {
             try {
                 if (na_value.equals("") || pr_value.equals("") || st_value.equals("")) {
                     JOptionPane.showMessageDialog(null, "Hay campos sin datos");
@@ -212,12 +212,12 @@ public class Productos extends javax.swing.JInternalFrame {
     }
 
     void clean_text() {
-        id.setText("");
-        name.setText("");
+        Id_Txt.setText("");
+        nameproductos.setText("");
         price.setText("");
         stock.setText("");
 
-        name.requestFocus();
+        nameproductos.requestFocus();
     }
     // </editor-fold>
 
@@ -238,7 +238,7 @@ public class Productos extends javax.swing.JInternalFrame {
             String st_value = (String) results.getValueAt(row, 3);
 
             id.setText("" + idc);
-            name.setText(na_value);
+            nameproductos.setText(na_value);
             price.setText(pr_value);
             stock.setText(st_value);
         }
@@ -260,7 +260,7 @@ public class Productos extends javax.swing.JInternalFrame {
         clean = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        name = new javax.swing.JTextField();
+        nameproductos = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         price = new javax.swing.JTextField();
@@ -334,6 +334,7 @@ public class Productos extends javax.swing.JInternalFrame {
         getContentPane().add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 114, 76, -1));
 
         clean.setBackground(new java.awt.Color(1, 32, 99));
+        clean.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons8-broom-16.png"))); // NOI18N
         clean.setText("Clean");
         clean.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -352,13 +353,14 @@ public class Productos extends javax.swing.JInternalFrame {
         jLabel3.setText("Name:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 27));
 
-        name.setBackground(new java.awt.Color(1, 32, 99));
-        name.addActionListener(new java.awt.event.ActionListener() {
+        nameproductos.setBackground(new java.awt.Color(1, 32, 99));
+        nameproductos.setForeground(new java.awt.Color(222, 222, 22));
+        nameproductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameActionPerformed(evt);
+                nameproductosActionPerformed(evt);
             }
         });
-        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 63, 213, -1));
+        getContentPane().add(nameproductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 63, 213, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(1, 32, 99));
@@ -371,6 +373,7 @@ public class Productos extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, -1));
 
         price.setBackground(new java.awt.Color(1, 32, 99));
+        price.setForeground(new java.awt.Color(222, 222, 22));
         price.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 priceActionPerformed(evt);
@@ -379,6 +382,7 @@ public class Productos extends javax.swing.JInternalFrame {
         getContentPane().add(price, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 6, 211, -1));
 
         stock.setBackground(new java.awt.Color(1, 32, 99));
+        stock.setForeground(new java.awt.Color(222, 222, 22));
         getContentPane().add(stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 63, 211, -1));
 
         Id_Txt.setBackground(new java.awt.Color(1, 32, 99));
@@ -432,9 +436,9 @@ public class Productos extends javax.swing.JInternalFrame {
         clean_text();
     }//GEN-LAST:event_cleanActionPerformed
 
-    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
+    private void nameproductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameproductosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nameActionPerformed
+    }//GEN-LAST:event_nameproductosActionPerformed
 
     private void Id_TxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Id_TxtActionPerformed
         // TODO add your handling code here:
@@ -458,7 +462,7 @@ public class Productos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField name;
+    private javax.swing.JTextField nameproductos;
     private javax.swing.JTextField price;
     private javax.swing.JTable results;
     private javax.swing.JTextField stock;
