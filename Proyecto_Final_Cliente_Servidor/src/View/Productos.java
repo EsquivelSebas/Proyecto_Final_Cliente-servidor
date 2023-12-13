@@ -124,49 +124,65 @@ public class Productos extends javax.swing.JInternalFrame {
         }
     }
 
-    void modify() {
-        String na_value = nameproductos.getText();
-        String pr_value = price.getText();
-        String st_value = stock.getText();
-        String nomsearch = JOptionPane.showInputDialog("ingrese un nombre");
-        if (nameproductos.getText().equals(nomsearch)) {
-            try {
-                if (na_value.equals("") || pr_value.equals("") || st_value.equals("")) {
-                    JOptionPane.showMessageDialog(null, "Hay campos sin datos");
-                    clean_table();
-                } else {
-                    String query = "update proyecto_final_cliente set nombre='" + na_value + "', precio='" + pr_value
-                            + "', cantidad='" + st_value + "' where id=" + model.getColumnName(idc);
+ void modify() {
+    String na_value = nameproductos.getText();
+    String pr_value = price.getText();
+    String st_value = stock.getText();
+    String id = Id_Txt.getText();
 
-                    connection = conn.getConexion();
-                    pst = connection.prepareStatement(query);
-                    pst.executeUpdate(query);
+    try {
+        // Verifica si el ID es un número válido
+        if (!id.isEmpty() && id.matches("\\d+")) {
+            int productId = Integer.parseInt(id);
 
+            // Verifica si los campos obligatorios no están vacíos
+            if (!na_value.equals("") && !pr_value.equals("") && !st_value.equals("")) {
+                String query = "UPDATE producto SET nombre=?, precio=?, cantidad=? WHERE id=?";
+
+                connection = conn.getConexion();
+                pst = connection.prepareStatement(query);
+                pst.setString(1, na_value);
+                pst.setString(2, pr_value);
+                pst.setString(3, st_value);
+                pst.setInt(4, productId);
+
+                int rowsAffected = pst.executeUpdate();
+
+                if (rowsAffected > 0) {
                     JOptionPane.showMessageDialog(null, "Producto modificado exitosamente");
                     clean_table();
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se pudo modificar el producto. Verifica el ID.");
                 }
-            } catch (Exception e) {
-                System.out.println("Error while adding data: " + e.getMessage());
-                JOptionPane.showMessageDialog(null, "Error al modificar Producto");
+            } else {
+                JOptionPane.showMessageDialog(null, "Hay campos sin datos");
                 clean_table();
-            } finally {
-                if (pst != null) {
-                    try {
-                        pst.close();
-                    } catch (SQLException error) {
-                        error.printStackTrace();
-                    }
-                }
-                if (connection != null) {
-                    try {
-                        connection.close();
-                    } catch (SQLException error) {
-                        error.printStackTrace();
-                    }
-                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese un ID válido de un producto existente.");
+        }
+    } catch (SQLException e) {
+        System.out.println("Error while modifying product: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Error al modificar producto");
+        clean_table();
+    } finally {
+        if (pst != null) {
+            try {
+                pst.close();
+            } catch (SQLException error) {
+                error.printStackTrace();
+            }
+        }
+        if (connection != null) {
+            try {
+                connection.close();
+            } catch (SQLException error) {
+                error.printStackTrace();
             }
         }
     }
+}
+
 
     void delete() {
         
@@ -282,9 +298,8 @@ public class Productos extends javax.swing.JInternalFrame {
         setIconifiable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        results.setBackground(new java.awt.Color(46, 30, 32));
+        results.setBackground(new java.awt.Color(222, 222, 222));
         results.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        results.setForeground(new java.awt.Color(46, 30, 32));
         results.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -328,7 +343,7 @@ public class Productos extends javax.swing.JInternalFrame {
                 editActionPerformed(evt);
             }
         });
-        getContentPane().add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 118, -1));
+        getContentPane().add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 116, 118, 30));
 
         add.setBackground(new java.awt.Color(1, 32, 99));
         add.setForeground(new java.awt.Color(204, 255, 255));
@@ -416,7 +431,6 @@ public class Productos extends javax.swing.JInternalFrame {
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
         modify();
-        clean_text();
     }//GEN-LAST:event_editActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed

@@ -62,24 +62,24 @@ public class Despachadores extends javax.swing.JInternalFrame {
 
     public boolean checkID(String ID, String nombre) {
         Connector conn = new Connector();
-    Connection connection = conn.getConexion();
-    String query = "SELECT * FROM despachadores WHERE ID = ? OR nombre = ?";
+        Connection connection = conn.getConexion();
+        String query = "SELECT * FROM despachadores WHERE ID = ? OR nombre = ?";
 
-    try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-        preparedStatement.setString(1, ID);
-        preparedStatement.setString(2, nombre);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, ID);
+            preparedStatement.setString(2, nombre);
 
-        try (ResultSet rs = preparedStatement.executeQuery()) {
-            return rs.next();
+            try (ResultSet rs = preparedStatement.executeQuery()) {
+                return rs.next();
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+            return false;
         }
-    } catch (SQLException e) {
-        System.out.println(e);
-        return false;
-    }
     }
 
     void addDispatcher() {
-        String Id_value = Id_txt1.getText();
+        String Id_value = Id_txt12.getText();
         String Name_value = name_Txt.getText();
 
         try {
@@ -123,7 +123,63 @@ public class Despachadores extends javax.swing.JInternalFrame {
             }
         }
     }
+    
+ void delete() {
+    try {
+        String idText = Id_txt12.getText();
 
+        if (idText.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un ID para eliminar.");
+            return;
+        }
+
+        // Verificar si Id_txt1 es un número válido
+        if (!idText.matches("\\d+")) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un ID válido.");
+            return;
+        }
+
+        int DispatcherId = Integer.parseInt(idText);
+
+        if (DispatcherId < 0) {
+            JOptionPane.showMessageDialog(null, "No hay una fila seleccionada");
+        } else {
+            String query = "DELETE FROM despachadores WHERE id = ?";
+
+            connection = conn.getConexion();
+            pst = connection.prepareStatement(query);
+
+            // Establecer el valor para el parámetro
+            pst.setInt(1, DispatcherId);
+
+            // Utilizar executeUpdate sin pasar la consulta nuevamente
+            pst.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Despachador eliminado exitosamente");
+            clean_Table();
+        }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Por favor, ingrese un ID válido.");
+    } catch (Exception e) {
+        clean_Table();
+    } finally {
+        if (pst != null) {
+            try {
+                pst.close();
+            } catch (SQLException error) {
+                error.printStackTrace();
+            }
+        }
+        if (connection != null) {
+            try {
+                connection.close();
+            } catch (SQLException error) {
+                error.printStackTrace();
+            }
+        }
+    }
+}
+ 
     private void checksdispatchers() {
         clean_Table();
         String query = "select * from despachadores";
@@ -185,7 +241,8 @@ public class Despachadores extends javax.swing.JInternalFrame {
         name_Txt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        Id_txt1 = new javax.swing.JTextField();
+        Id_txt12 = new javax.swing.JTextField();
+        DelDispatcher = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
@@ -217,7 +274,7 @@ public class Despachadores extends javax.swing.JInternalFrame {
                 insertarActionPerformed(evt);
             }
         });
-        getContentPane().add(insertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, -1, -1));
+        getContentPane().add(insertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, -1));
 
         Checkdispatcher.setBackground(new java.awt.Color(247, 233, 207));
         Checkdispatcher.setForeground(new java.awt.Color(0, 128, 141));
@@ -237,7 +294,7 @@ public class Despachadores extends javax.swing.JInternalFrame {
                 updateDispatcherActionPerformed(evt);
             }
         });
-        getContentPane().add(updateDispatcher, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
+        getContentPane().add(updateDispatcher, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, -1, -1));
 
         name_Txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,12 +311,22 @@ public class Despachadores extends javax.swing.JInternalFrame {
         jLabel4.setText("ID:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 30, -1));
 
-        Id_txt1.addActionListener(new java.awt.event.ActionListener() {
+        Id_txt12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Id_txt1ActionPerformed(evt);
+                Id_txt12ActionPerformed(evt);
             }
         });
-        getContentPane().add(Id_txt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 80, -1));
+        getContentPane().add(Id_txt12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 80, -1));
+
+        DelDispatcher.setBackground(new java.awt.Color(247, 233, 207));
+        DelDispatcher.setForeground(new java.awt.Color(0, 128, 141));
+        DelDispatcher.setText("Delete Dispatcher");
+        DelDispatcher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DelDispatcherActionPerformed(evt);
+            }
+        });
+        getContentPane().add(DelDispatcher, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/d93ef037ee6a0239287a57ea763d07c1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 170));
@@ -270,7 +337,7 @@ public class Despachadores extends javax.swing.JInternalFrame {
     private void insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarActionPerformed
 
         addDispatcher();
-
+        checksdispatchers();
     }//GEN-LAST:event_insertarActionPerformed
 
     private void CheckdispatcherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckdispatcherActionPerformed
@@ -279,7 +346,7 @@ public class Despachadores extends javax.swing.JInternalFrame {
 
     private void updateDispatcherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateDispatcherActionPerformed
 
-        String idString = Id_txt1.getText();
+        String idString = Id_txt12.getText();
         String newName = JOptionPane.showInputDialog(this, "Ingrese el nuevo nombre:");
         try {
 
@@ -299,15 +366,21 @@ public class Despachadores extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_name_TxtActionPerformed
 
-    private void Id_txt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Id_txt1ActionPerformed
+    private void Id_txt12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Id_txt12ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Id_txt1ActionPerformed
+    }//GEN-LAST:event_Id_txt12ActionPerformed
+
+    private void DelDispatcherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelDispatcherActionPerformed
+       delete();
+       checksdispatchers();
+    }//GEN-LAST:event_DelDispatcherActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Checkdispatcher;
+    private javax.swing.JButton DelDispatcher;
     private javax.swing.JTable DispatcherTable;
-    private javax.swing.JTextField Id_txt1;
+    private javax.swing.JTextField Id_txt12;
     private javax.swing.JLabel Namelabel;
     private javax.swing.JButton insertar;
     private javax.swing.JLabel jLabel1;
