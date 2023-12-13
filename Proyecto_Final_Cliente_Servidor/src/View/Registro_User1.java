@@ -42,6 +42,7 @@ public class Registro_User1 extends javax.swing.JFrame {
         Passwordregistro = new javax.swing.JTextField();
         create = new javax.swing.JButton();
         volverLogin = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -103,7 +104,10 @@ public class Registro_User1 extends javax.swing.JFrame {
         });
         jPanel1.add(volverLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 190));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Screenshot 2023-12-13 023924.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 240));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 240));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -171,6 +175,7 @@ public class Registro_User1 extends javax.swing.JFrame {
     private javax.swing.JButton create;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

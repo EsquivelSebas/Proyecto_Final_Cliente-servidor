@@ -298,42 +298,51 @@ public class Productos extends javax.swing.JInternalFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 620, 120));
 
         jButton1.setBackground(new java.awt.Color(1, 32, 99));
+        jButton1.setForeground(new java.awt.Color(204, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-magnifying-glass-16.png"))); // NOI18N
         jButton1.setText("Check products");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 114, 113, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 140, -1));
 
         delete.setBackground(new java.awt.Color(1, 32, 99));
+        delete.setForeground(new java.awt.Color(204, 255, 255));
+        delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-x-16.png"))); // NOI18N
         delete.setText("Delete");
         delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteActionPerformed(evt);
             }
         });
-        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 114, 106, -1));
+        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 106, -1));
 
         edit.setBackground(new java.awt.Color(1, 32, 99));
+        edit.setForeground(new java.awt.Color(204, 255, 255));
+        edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-pen-16.png"))); // NOI18N
         edit.setText("Modify");
         edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editActionPerformed(evt);
             }
         });
-        getContentPane().add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(267, 114, 118, -1));
+        getContentPane().add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 118, -1));
 
         add.setBackground(new java.awt.Color(1, 32, 99));
+        add.setForeground(new java.awt.Color(204, 255, 255));
+        add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-check-16.png"))); // NOI18N
         add.setText("Add");
         add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addActionPerformed(evt);
             }
         });
-        getContentPane().add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 114, 76, -1));
+        getContentPane().add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 76, -1));
 
         clean.setBackground(new java.awt.Color(1, 32, 99));
+        clean.setForeground(new java.awt.Color(204, 255, 255));
         clean.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons8-broom-16.png"))); // NOI18N
         clean.setText("Clean");
         clean.addActionListener(new java.awt.event.ActionListener() {
@@ -341,7 +350,7 @@ public class Productos extends javax.swing.JInternalFrame {
                 cleanActionPerformed(evt);
             }
         });
-        getContentPane().add(clean, new org.netbeans.lib.awtextra.AbsoluteConstraints(497, 114, 117, -1));
+        getContentPane().add(clean, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 117, -1));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(1, 32, 99));
