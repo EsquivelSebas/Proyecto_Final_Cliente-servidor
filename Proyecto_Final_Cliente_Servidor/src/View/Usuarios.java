@@ -147,28 +147,28 @@ public class Usuarios extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(userTable);
 
-        insertar.setText("Ver Usuarios");
+        insertar.setText("Check users");
         insertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 insertarActionPerformed(evt);
             }
         });
 
-        eliminarbtn.setText("eliminar");
+        eliminarbtn.setText("Delete");
         eliminarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarbtnActionPerformed(evt);
             }
         });
 
-        AgregarUser.setText("Agregar");
+        AgregarUser.setText("Add");
         AgregarUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregarUserActionPerformed(evt);
             }
         });
 
-        modificarbtn.setText("modificar");
+        modificarbtn.setText("Modify");
 
         jLabel1.setText("ID");
 
@@ -224,10 +224,11 @@ public class Usuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_insertarActionPerformed
 
     private void eliminarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarbtnActionPerformed
-    String productIdText = userIdTF.getText();
+    String userID = userIdTF.getText();
     try {     
-        productIdText = (productIdText);      
+        userID = (userID);      
         delete();
+        retrieve();
     } catch (NumberFormatException e) {
         JOptionPane.showMessageDialog(null, "Por favor, ingrese un ID de User valido.");
    }

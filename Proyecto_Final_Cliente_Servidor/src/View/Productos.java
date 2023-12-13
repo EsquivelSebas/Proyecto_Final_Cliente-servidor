@@ -276,154 +276,115 @@ public class Productos extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Nombre:");
 
+        setBackground(new java.awt.Color(46, 30, 32));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        results.setBackground(new java.awt.Color(46, 30, 32));
+        results.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        results.setForeground(new java.awt.Color(46, 30, 32));
         results.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "id", "nombre", "precio", "cantidad"
+                "id", "name", "price", "quantity"
             }
         ));
         jScrollPane1.setViewportView(results);
 
-        jButton1.setText("Ver Productos");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 660, 200));
+
+        jButton1.setBackground(new java.awt.Color(91, 110, 57));
+        jButton1.setText("Check products");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 114, 113, -1));
 
-        delete.setText("Eliminar");
+        delete.setBackground(new java.awt.Color(91, 110, 57));
+        delete.setText("Delete");
         delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteActionPerformed(evt);
             }
         });
+        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 114, 106, -1));
 
-        edit.setText("Modificar");
+        edit.setBackground(new java.awt.Color(91, 110, 57));
+        edit.setText("Modify");
         edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editActionPerformed(evt);
             }
         });
+        getContentPane().add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(267, 114, 118, -1));
 
-        add.setText("Agregar");
+        add.setBackground(new java.awt.Color(91, 110, 57));
+        add.setText("Add");
         add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addActionPerformed(evt);
             }
         });
+        getContentPane().add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 114, 76, -1));
 
-        clean.setText("Limpiar");
+        clean.setBackground(new java.awt.Color(91, 110, 57));
+        clean.setText("Clean");
         clean.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cleanActionPerformed(evt);
             }
         });
+        getContentPane().add(clean, new org.netbeans.lib.awtextra.AbsoluteConstraints(497, 114, 117, -1));
 
+        jLabel9.setForeground(new java.awt.Color(91, 110, 57));
         jLabel9.setText("Id:");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 8, -1, -1));
 
-        jLabel3.setText("Nombre:");
+        jLabel3.setForeground(new java.awt.Color(91, 110, 57));
+        jLabel3.setText("Name:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 59, -1, 27));
 
+        name.setBackground(new java.awt.Color(91, 110, 57));
         name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameActionPerformed(evt);
             }
         });
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 63, 213, -1));
 
-        jLabel4.setText("Precio:");
+        jLabel4.setForeground(new java.awt.Color(91, 110, 57));
+        jLabel4.setText("Price:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 8, -1, -1));
 
+        jLabel5.setForeground(new java.awt.Color(91, 110, 57));
         jLabel5.setText("Cantidad:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 65, -1, -1));
 
+        price.setBackground(new java.awt.Color(91, 110, 57));
         price.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 priceActionPerformed(evt);
             }
         });
+        getContentPane().add(price, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 6, 211, -1));
 
+        stock.setBackground(new java.awt.Color(91, 110, 57));
+        getContentPane().add(stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 63, 211, -1));
+
+        Id_Txt.setBackground(new java.awt.Color(91, 110, 57));
         Id_Txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Id_TxtActionPerformed(evt);
             }
         });
-
-        jLabel1.setText("Solo para eliminar de momento");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel3))
-                                .addGap(36, 36, 36)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                                            .addComponent(Id_Txt))
-                                        .addGap(31, 31, 31)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel5))))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(clean, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(price)
-                                    .addComponent(stock, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE))
-                                .addGap(12, 12, 12)))))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel4)
-                    .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Id_Txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(stock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(clean)
-                    .addComponent(add)
-                    .addComponent(edit)
-                    .addComponent(delete)
-                    .addComponent(jButton1))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        getContentPane().add(Id_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 6, 213, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

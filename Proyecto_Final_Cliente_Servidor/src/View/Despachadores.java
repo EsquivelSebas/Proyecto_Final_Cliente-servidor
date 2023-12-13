@@ -13,6 +13,8 @@ import javax.swing.table.DefaultTableModel;
 public class Despachadores extends javax.swing.JInternalFrame {
     public Despachadores() {
         initComponents();
+        this.setResizable(false);
+        this.setSize(656, 333);
     }
 
     /**
@@ -32,11 +34,11 @@ public class Despachadores extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGap(0, 648, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGap(0, 303, Short.MAX_VALUE)
         );
 
         pack();

@@ -92,16 +92,16 @@ public class Registro_User1 extends javax.swing.JFrame {
                 createActionPerformed(evt);
             }
         });
-        jPanel1.add(create, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        jPanel1.add(create, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, -1));
 
         volverLogin.setBackground(new java.awt.Color(91, 110, 57));
-        volverLogin.setText("Login");
+        volverLogin.setText("Back");
         volverLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volverLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(volverLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, -1, -1));
+        jPanel1.add(volverLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 190));
 

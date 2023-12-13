@@ -114,7 +114,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="insertar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ver Usuarios"/>
+        <Property name="text" type="java.lang.String" value="Check users"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="insertarActionPerformed"/>
@@ -122,7 +122,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="eliminarbtn">
       <Properties>
-        <Property name="text" type="java.lang.String" value="eliminar"/>
+        <Property name="text" type="java.lang.String" value="Delete"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eliminarbtnActionPerformed"/>
@@ -130,7 +130,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="AgregarUser">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Agregar"/>
+        <Property name="text" type="java.lang.String" value="Add"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregarUserActionPerformed"/>
@@ -138,7 +138,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="modificarbtn">
       <Properties>
-        <Property name="text" type="java.lang.String" value="modificar"/>
+        <Property name="text" type="java.lang.String" value="Modify"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="userIdTF">

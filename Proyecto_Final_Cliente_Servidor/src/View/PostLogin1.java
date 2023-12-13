@@ -3,9 +3,9 @@ package View;
 public class PostLogin1 extends javax.swing.JFrame {
     public PostLogin1() {
         initComponents();
-        this.setLocationRelativeTo(this);
-        this.setSize(910, 650);
-        this.setResizable(true);
+        this.setLocationRelativeTo(null);
+        this.setSize(910, 670);
+        this.setResizable(false);
     }
 
     /**
@@ -29,6 +29,8 @@ public class PostLogin1 extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(250, 250, 250));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setBackground(new java.awt.Color(91, 110, 57));
+        jButton1.setForeground(new java.awt.Color(46, 30, 32));
         jButton1.setText("Productos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -37,6 +39,7 @@ public class PostLogin1 extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
+        jButton2.setBackground(new java.awt.Color(91, 110, 57));
         jButton2.setText("Usuarios");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,10 +48,16 @@ public class PostLogin1 extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, -1));
 
+        jButton3.setBackground(new java.awt.Color(91, 110, 57));
         jButton3.setText("Despachadores");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 110, -1, -1));
 
-        postLogPanel.setBackground(new java.awt.Color(99, 184, 231));
+        postLogPanel.setBackground(new java.awt.Color(91, 110, 57));
 
         javax.swing.GroupLayout postLogPanelLayout = new javax.swing.GroupLayout(postLogPanel);
         postLogPanel.setLayout(postLogPanelLayout);
@@ -63,7 +72,7 @@ public class PostLogin1 extends javax.swing.JFrame {
 
         jPanel1.add(postLogPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 910, 420));
 
-        jPanel2.setBackground(new java.awt.Color(6, 39, 32));
+        jPanel2.setBackground(new java.awt.Color(46, 30, 32));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -86,7 +95,7 @@ public class PostLogin1 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
         );
 
         pack();
@@ -103,6 +112,12 @@ public class PostLogin1 extends javax.swing.JFrame {
         postLogPanel.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 280));
         user.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+      Despachadores despachadoresgui = new Despachadores();
+      postLogPanel.add(despachadoresgui, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 280));
+      despachadoresgui.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

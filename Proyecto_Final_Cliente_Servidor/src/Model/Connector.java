@@ -6,11 +6,6 @@ package Model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
-/**
- *
- * @author sebaw
- */
 public class Connector {
     public static final String URL = "jdbc:mysql://localhost:3306/proyecto_final_cliente";
     public static final String USER = "root";

@@ -43,24 +43,25 @@ public class GuiPrinci extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Registrarse = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(141, 71, 1));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(46, 30, 32));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Testconn.setBackground(new java.awt.Color(91, 110, 57));
-        Testconn.setText("Testear conexion");
+        Testconn.setBackground(new java.awt.Color(222, 222, 222));
+        Testconn.setText("Conn test");
         Testconn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TestconnActionPerformed(evt);
             }
         });
-        jPanel2.add(Testconn, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 0, -1, -1));
+        jPanel2.add(Testconn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(91, 110, 57));
+        jPanel1.setBackground(new java.awt.Color(222, 222, 222));
 
         jButton1.setBackground(new java.awt.Color(46, 30, 32));
         jButton1.setForeground(new java.awt.Color(91, 110, 57));
@@ -88,12 +89,14 @@ public class GuiPrinci extends javax.swing.JFrame {
 
         Registrarse.setBackground(new java.awt.Color(46, 30, 32));
         Registrarse.setForeground(new java.awt.Color(91, 110, 57));
-        Registrarse.setText("Registrarse");
+        Registrarse.setText("Sign Up");
         Registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegistrarseActionPerformed(evt);
             }
         });
+
+        jLabel3.setText("Want to login?");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -105,9 +108,6 @@ public class GuiPrinci extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(240, 240, 240)
                         .addComponent(Registrarse))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -116,8 +116,13 @@ public class GuiPrinci extends javax.swing.JFrame {
                         .addGap(58, 58, 58)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(contraseñaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(10, 10, 10))
+                            .addComponent(emailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)))
+                .addGap(463, 463, 463))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,18 +135,58 @@ public class GuiPrinci extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(contraseñaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(148, 148, 148)
-                .addComponent(jButton1)
-                .addGap(10, 10, 10)
-                .addComponent(Registrarse))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(jButton1)
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(Registrarse)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, 330));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 330, 330));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 460));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/supermarket.jpg"))); // NOI18N
+        jLabel4.setText("adasdasdadasdas");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-330, -90, 1115, 595));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TestconnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TestconnActionPerformed
+        if(connection == null){
+            JOptionPane.showMessageDialog(null, "Connection error");
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Connection was successful");
+        }
+    }//GEN-LAST:event_TestconnActionPerformed
+
+    private void RegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseActionPerformed
+        Registro_User1 registrar = new Registro_User1();
+        registrar.setVisible(true);
+        this.setVisible(false);
+
+    }//GEN-LAST:event_RegistrarseActionPerformed
+
+    private void emailTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTxtActionPerformed
+
+    }//GEN-LAST:event_emailTxtActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Consultas query = new Consultas();
@@ -162,26 +207,6 @@ public class GuiPrinci extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error: Email o contraseña incorrectos.");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void emailTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTxtActionPerformed
-
-    }//GEN-LAST:event_emailTxtActionPerformed
-
-    private void TestconnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TestconnActionPerformed
-        if(connection == null){
-            JOptionPane.showMessageDialog(null, "Connection error");
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Connection was successful");
-        }
-    }//GEN-LAST:event_TestconnActionPerformed
-
-    private void RegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarseActionPerformed
-        Registro_User1 registrar = new Registro_User1();
-        registrar.setVisible(true);
-        this.setVisible(false);
-            
-    }//GEN-LAST:event_RegistrarseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,6 +251,8 @@ public class GuiPrinci extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
