@@ -267,6 +267,7 @@ public class Productos extends javax.swing.JInternalFrame {
         stock = new javax.swing.JTextField();
         Id_Txt = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         jLabel8.setText("Id:");
 
@@ -295,7 +296,7 @@ public class Productos extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(results);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 660, 200));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 620, 120));
 
         jButton1.setBackground(new java.awt.Color(91, 110, 57));
         jButton1.setText("Check products");
@@ -385,6 +386,7 @@ public class Productos extends javax.swing.JInternalFrame {
         });
         getContentPane().add(Id_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 6, 213, -1));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 0, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 150));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -448,6 +450,7 @@ public class Productos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField name;
     private javax.swing.JTextField price;

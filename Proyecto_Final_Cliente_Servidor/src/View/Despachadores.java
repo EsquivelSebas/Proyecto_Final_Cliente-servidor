@@ -26,25 +26,74 @@ public class Despachadores extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        userTable = new javax.swing.JTable();
+        insertar = new javax.swing.JButton();
+        insertar1 = new javax.swing.JButton();
+        insertar2 = new javax.swing.JButton();
+
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 648, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 303, Short.MAX_VALUE)
-        );
+        userTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "id", "nombre"
+            }
+        ));
+        jScrollPane1.setViewportView(userTable);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 122, 648, 181));
+
+        insertar.setText("Modify dispatchers");
+        insertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(insertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
+
+        insertar1.setText("Check dispatchers ");
+        insertar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(insertar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 79, -1, -1));
+
+        insertar2.setText("Modify dispatchers");
+        insertar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertar2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(insertar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarActionPerformed
+
+    }//GEN-LAST:event_insertarActionPerformed
+
+    private void insertar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_insertar1ActionPerformed
+
+    private void insertar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_insertar2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton insertar;
+    private javax.swing.JButton insertar1;
+    private javax.swing.JButton insertar2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable userTable;
     // End of variables declaration//GEN-END:variables
 }
