@@ -23,7 +23,7 @@ public class Productos extends javax.swing.JInternalFrame {
 
     public Productos() {
         initComponents();
-        this.setSize(656, 333);
+        this.setSize(626, 300);
         this.setResizable(false);
         productId = 0;
     }
@@ -267,7 +267,7 @@ public class Productos extends javax.swing.JInternalFrame {
         stock = new javax.swing.JTextField();
         Id_Txt = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
 
         jLabel8.setText("Id:");
 
@@ -280,7 +280,6 @@ public class Productos extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(46, 30, 32));
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         results.setBackground(new java.awt.Color(46, 30, 32));
@@ -298,7 +297,7 @@ public class Productos extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 620, 120));
 
-        jButton1.setBackground(new java.awt.Color(91, 110, 57));
+        jButton1.setBackground(new java.awt.Color(1, 32, 99));
         jButton1.setText("Check products");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -307,7 +306,7 @@ public class Productos extends javax.swing.JInternalFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 114, 113, -1));
 
-        delete.setBackground(new java.awt.Color(91, 110, 57));
+        delete.setBackground(new java.awt.Color(1, 32, 99));
         delete.setText("Delete");
         delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -316,7 +315,7 @@ public class Productos extends javax.swing.JInternalFrame {
         });
         getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 114, 106, -1));
 
-        edit.setBackground(new java.awt.Color(91, 110, 57));
+        edit.setBackground(new java.awt.Color(1, 32, 99));
         edit.setText("Modify");
         edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -325,7 +324,7 @@ public class Productos extends javax.swing.JInternalFrame {
         });
         getContentPane().add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(267, 114, 118, -1));
 
-        add.setBackground(new java.awt.Color(91, 110, 57));
+        add.setBackground(new java.awt.Color(1, 32, 99));
         add.setText("Add");
         add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -334,7 +333,7 @@ public class Productos extends javax.swing.JInternalFrame {
         });
         getContentPane().add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 114, 76, -1));
 
-        clean.setBackground(new java.awt.Color(91, 110, 57));
+        clean.setBackground(new java.awt.Color(1, 32, 99));
         clean.setText("Clean");
         clean.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -343,15 +342,17 @@ public class Productos extends javax.swing.JInternalFrame {
         });
         getContentPane().add(clean, new org.netbeans.lib.awtextra.AbsoluteConstraints(497, 114, 117, -1));
 
-        jLabel9.setForeground(new java.awt.Color(91, 110, 57));
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(1, 32, 99));
         jLabel9.setText("Id:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 8, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 40, -1));
 
-        jLabel3.setForeground(new java.awt.Color(91, 110, 57));
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(1, 32, 99));
         jLabel3.setText("Name:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 59, -1, 27));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 27));
 
-        name.setBackground(new java.awt.Color(91, 110, 57));
+        name.setBackground(new java.awt.Color(1, 32, 99));
         name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameActionPerformed(evt);
@@ -359,15 +360,17 @@ public class Productos extends javax.swing.JInternalFrame {
         });
         getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 63, 213, -1));
 
-        jLabel4.setForeground(new java.awt.Color(91, 110, 57));
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(1, 32, 99));
         jLabel4.setText("Price:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 8, -1, -1));
 
-        jLabel5.setForeground(new java.awt.Color(91, 110, 57));
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(1, 32, 99));
         jLabel5.setText("Cantidad:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 65, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, -1));
 
-        price.setBackground(new java.awt.Color(91, 110, 57));
+        price.setBackground(new java.awt.Color(1, 32, 99));
         price.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 priceActionPerformed(evt);
@@ -375,10 +378,11 @@ public class Productos extends javax.swing.JInternalFrame {
         });
         getContentPane().add(price, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 6, 211, -1));
 
-        stock.setBackground(new java.awt.Color(91, 110, 57));
+        stock.setBackground(new java.awt.Color(1, 32, 99));
         getContentPane().add(stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 63, 211, -1));
 
-        Id_Txt.setBackground(new java.awt.Color(91, 110, 57));
+        Id_Txt.setBackground(new java.awt.Color(1, 32, 99));
+        Id_Txt.setForeground(new java.awt.Color(222, 222, 22));
         Id_Txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Id_TxtActionPerformed(evt);
@@ -386,7 +390,9 @@ public class Productos extends javax.swing.JInternalFrame {
         });
         getContentPane().add(Id_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 6, 213, -1));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 0, -1, -1));
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 150));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/6204a337101f29a2b14dffd576fc32b3.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 150));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -448,9 +454,9 @@ public class Productos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField name;
     private javax.swing.JTextField price;
