@@ -225,33 +225,36 @@ public class Usuarios extends javax.swing.JInternalFrame {
 
         Checkusers.setBackground(new java.awt.Color(51, 0, 0));
         Checkusers.setForeground(new java.awt.Color(255, 255, 255));
+        Checkusers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-magnifying-glass-16.png"))); // NOI18N
         Checkusers.setText("Check users");
         Checkusers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CheckusersActionPerformed(evt);
             }
         });
-        getContentPane().add(Checkusers, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 110, 30));
+        getContentPane().add(Checkusers, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 130, 30));
 
         eliminarbtn.setBackground(new java.awt.Color(51, 0, 0));
         eliminarbtn.setForeground(new java.awt.Color(255, 255, 255));
+        eliminarbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-x-16.png"))); // NOI18N
         eliminarbtn.setText("Delete");
         eliminarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(eliminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 83, 80, 30));
+        getContentPane().add(eliminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 130, 30));
 
         modificarbtn.setBackground(new java.awt.Color(51, 0, 0));
         modificarbtn.setForeground(new java.awt.Color(255, 255, 255));
+        modificarbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-pen-16.png"))); // NOI18N
         modificarbtn.setText("Modify");
         modificarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificarbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(modificarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 83, 80, 30));
+        getContentPane().add(modificarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 130, 30));
         getContentPane().add(IDTEXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 80, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
