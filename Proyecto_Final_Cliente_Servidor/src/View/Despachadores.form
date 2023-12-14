@@ -88,6 +88,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="8d" green="80" red="0" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Images/icons8-check-16.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Add dispatchers"/>
       </Properties>
       <Events>
@@ -95,7 +98,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="370" y="140" width="-1" height="-1"/>
+          <AbsoluteConstraints x="340" y="140" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -107,6 +110,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="8d" green="80" red="0" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Images/icons8-magnifying-glass-16.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Check dispatchers "/>
       </Properties>
       <Events>
@@ -114,7 +120,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="30" y="140" width="-1" height="-1"/>
+          <AbsoluteConstraints x="10" y="140" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -126,6 +132,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="8d" green="80" red="0" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Images/icons8-pen-16.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Modify dispatchers"/>
       </Properties>
       <Events>
@@ -133,7 +142,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="200" y="140" width="-1" height="-1"/>
+          <AbsoluteConstraints x="180" y="140" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -178,6 +187,9 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="8d" green="80" red="0" type="rgb"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Images/icons8-x-16.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Delete Dispatcher"/>
       </Properties>
       <Events>
@@ -185,7 +197,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="510" y="140" width="-1" height="-1"/>
+          <AbsoluteConstraints x="490" y="140" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

@@ -285,7 +285,6 @@ public class Ventas extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 430, 190));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-back-32.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -297,10 +296,11 @@ public class Ventas extends javax.swing.JFrame {
 
         jLabel2.setForeground(new java.awt.Color(51, 51, 55));
         jLabel2.setText("Back");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(222, 222, 222));
         jButton2.setForeground(new java.awt.Color(51, 51, 55));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-magnifying-glass-16.png"))); // NOI18N
         jButton2.setText("Check products");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -332,7 +332,6 @@ public class Ventas extends javax.swing.JFrame {
         jLabel6.setText("Quantity");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, -1, -1));
 
-        Comprar.setBackground(new java.awt.Color(255, 255, 255));
         Comprar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-shopping-cart-30.png"))); // NOI18N
         Comprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -341,7 +340,6 @@ public class Ventas extends javax.swing.JFrame {
         });
         getContentPane().add(Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 60, 30));
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-pen-16.png"))); // NOI18N
         jButton3.setBorder(null);
         jButton3.addActionListener(new java.awt.event.ActionListener() {

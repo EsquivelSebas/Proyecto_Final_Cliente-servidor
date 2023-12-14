@@ -267,33 +267,36 @@ public class Despachadores extends javax.swing.JInternalFrame {
 
         insertar.setBackground(new java.awt.Color(247, 233, 207));
         insertar.setForeground(new java.awt.Color(0, 128, 141));
+        insertar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-check-16.png"))); // NOI18N
         insertar.setText("Add dispatchers");
         insertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 insertarActionPerformed(evt);
             }
         });
-        getContentPane().add(insertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, -1));
+        getContentPane().add(insertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, -1, -1));
 
         Checkdispatcher.setBackground(new java.awt.Color(247, 233, 207));
         Checkdispatcher.setForeground(new java.awt.Color(0, 128, 141));
+        Checkdispatcher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-magnifying-glass-16.png"))); // NOI18N
         Checkdispatcher.setText("Check dispatchers ");
         Checkdispatcher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CheckdispatcherActionPerformed(evt);
             }
         });
-        getContentPane().add(Checkdispatcher, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+        getContentPane().add(Checkdispatcher, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
         updateDispatcher.setBackground(new java.awt.Color(247, 233, 207));
         updateDispatcher.setForeground(new java.awt.Color(0, 128, 141));
+        updateDispatcher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-pen-16.png"))); // NOI18N
         updateDispatcher.setText("Modify dispatchers");
         updateDispatcher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateDispatcherActionPerformed(evt);
             }
         });
-        getContentPane().add(updateDispatcher, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, -1, -1));
+        getContentPane().add(updateDispatcher, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
 
         name_Txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -315,13 +318,14 @@ public class Despachadores extends javax.swing.JInternalFrame {
 
         DelDispatcher.setBackground(new java.awt.Color(247, 233, 207));
         DelDispatcher.setForeground(new java.awt.Color(0, 128, 141));
+        DelDispatcher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-x-16.png"))); // NOI18N
         DelDispatcher.setText("Delete Dispatcher");
         DelDispatcher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DelDispatcherActionPerformed(evt);
             }
         });
-        getContentPane().add(DelDispatcher, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, -1, -1));
+        getContentPane().add(DelDispatcher, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/d93ef037ee6a0239287a57ea763d07c1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 170));

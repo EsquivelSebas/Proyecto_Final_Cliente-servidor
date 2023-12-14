@@ -343,7 +343,7 @@ public class Productos extends javax.swing.JInternalFrame {
                 editActionPerformed(evt);
             }
         });
-        getContentPane().add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 116, 118, 30));
+        getContentPane().add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 118, -1));
 
         add.setBackground(new java.awt.Color(1, 32, 99));
         add.setForeground(new java.awt.Color(204, 255, 255));
