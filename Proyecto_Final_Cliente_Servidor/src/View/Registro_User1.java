@@ -34,15 +34,18 @@ public class Registro_User1 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        Emailregistro = new javax.swing.JTextField();
         Passwordregistro = new javax.swing.JTextField();
         create = new javax.swing.JButton();
         volverLogin = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        Emailregistro = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -58,56 +61,141 @@ public class Registro_User1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(46, 30, 32));
-        jPanel1.setForeground(java.awt.Color.red);
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel4.setBackground(new java.awt.Color(153, 0, 0));
 
-        jPanel3.setBackground(new java.awt.Color(91, 110, 57));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/imagen_2023-12-13_174821776-removebg-preview.png"))); // NOI18N
 
-        jLabel1.setText("Email:");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("WELCOME TO");
 
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 330));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setBackground(new java.awt.Color(204, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-lock-24.png"))); // NOI18N
         jLabel2.setText("Password:");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
-        Emailregistro.setBackground(new java.awt.Color(46, 30, 32));
-        Emailregistro.setForeground(new java.awt.Color(91, 110, 57));
-        Emailregistro.addActionListener(new java.awt.event.ActionListener() {
+        Passwordregistro.setForeground(new java.awt.Color(91, 110, 57));
+        Passwordregistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmailregistroActionPerformed(evt);
+                PasswordregistroActionPerformed(evt);
             }
         });
-        jPanel3.add(Emailregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 140, -1));
 
-        Passwordregistro.setBackground(new java.awt.Color(46, 30, 32));
-        Passwordregistro.setForeground(new java.awt.Color(91, 110, 57));
-        jPanel3.add(Passwordregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 140, -1));
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 290, 110));
-
-        create.setBackground(new java.awt.Color(91, 110, 57));
+        create.setBackground(new java.awt.Color(153, 0, 0));
+        create.setForeground(new java.awt.Color(255, 255, 255));
+        create.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-create-30.png"))); // NOI18N
         create.setText("Create");
         create.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createActionPerformed(evt);
             }
         });
-        jPanel1.add(create, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, -1));
 
-        volverLogin.setBackground(new java.awt.Color(91, 110, 57));
+        volverLogin.setBackground(new java.awt.Color(153, 0, 51));
+        volverLogin.setForeground(new java.awt.Color(255, 255, 255));
+        volverLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-back-30_1.png"))); // NOI18N
         volverLogin.setText("Back");
         volverLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volverLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(volverLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Screenshot 2023-12-13 023924.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 240));
+        jLabel1.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-email-24.png"))); // NOI18N
+        jLabel1.setText("Email:");
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 240));
+        Emailregistro.setForeground(new java.awt.Color(91, 110, 57));
+        Emailregistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmailregistroActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel5.setText("THE STORE");
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-fish-100.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel5))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(volverLogin)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(create))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1)
+                                        .addComponent(jLabel2))
+                                    .addGap(12, 12, 12)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Emailregistro, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Passwordregistro, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Emailregistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Passwordregistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(create)
+                    .addComponent(volverLogin))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addGap(54, 54, 54))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 300, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -125,14 +213,18 @@ public class Registro_User1 extends javax.swing.JFrame {
         if (usuario.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor, ingrese tanto el usuario como la contraseña.");
         }else{
-             query.guardarUsuario(usuario, password);
-        cleantext();
+            query.guardarUsuario(usuario, password);
+            cleantext();
         }
     }//GEN-LAST:event_createActionPerformed
 
     private void EmailregistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailregistroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EmailregistroActionPerformed
+
+    private void PasswordregistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordregistroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PasswordregistroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,9 +268,12 @@ public class Registro_User1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JButton volverLogin;
     // End of variables declaration//GEN-END:variables
 }
