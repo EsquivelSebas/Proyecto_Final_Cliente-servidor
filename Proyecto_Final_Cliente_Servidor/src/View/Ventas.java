@@ -27,7 +27,7 @@ public class Ventas extends javax.swing.JFrame {
     public Ventas() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setSize(869, 359);
+        this.setSize(883, 359);
         this.setResizable(false);
 
     }
@@ -260,10 +260,7 @@ public class Ventas extends javax.swing.JFrame {
 
         Ventastable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "idVenta", "idProduct", "Quantity", "Precio", "Fecha"
@@ -285,6 +282,7 @@ public class Ventas extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 430, 190));
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-back-32.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -312,8 +310,8 @@ public class Ventas extends javax.swing.JFrame {
         jLabel3.setBackground(new java.awt.Color(18, 30, 49));
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(18, 30, 49));
-        jLabel3.setText("Product");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 50, -1));
+        jLabel3.setText("Product ID");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(18, 30, 49));
@@ -332,7 +330,9 @@ public class Ventas extends javax.swing.JFrame {
         jLabel6.setText("Quantity");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, -1, -1));
 
+        Comprar.setBackground(new java.awt.Color(255, 255, 255));
         Comprar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-shopping-cart-30.png"))); // NOI18N
+        Comprar.setBorder(null);
         Comprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComprarActionPerformed(evt);
@@ -340,7 +340,8 @@ public class Ventas extends javax.swing.JFrame {
         });
         getContentPane().add(Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 60, 30));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-pen-16.png"))); // NOI18N
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-magnifying-glass-16.png"))); // NOI18N
         jButton3.setBorder(null);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -350,7 +351,7 @@ public class Ventas extends javax.swing.JFrame {
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 70, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/53405770-seamless-shopping-cart-pattern-background-texture.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 360));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

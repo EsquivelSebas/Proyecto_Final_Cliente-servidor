@@ -128,7 +128,7 @@ public class Productos extends javax.swing.JInternalFrame {
     String na_value = nameproductos.getText();
     String pr_value = price.getText();
     String st_value = stock.getText();
-    String id = Id_Txt.getText();
+    String id = idproductoTXT.getText();
 
     try {
         // Verifica si el ID es un número válido
@@ -185,50 +185,53 @@ public class Productos extends javax.swing.JInternalFrame {
 
 
     void delete() {
-        
-        int productId = Integer.parseInt(Id_Txt.getText());
+    String productIdText = idproductoTXT.getText();
 
-        try {
+    try {
+        // Verifica si el ID es un número válido
+        if (!productIdText.isEmpty() && productIdText.matches("\\d+")) {
+            int productId = Integer.parseInt(productIdText);
 
-            if (productId < 0) {
-                JOptionPane.showMessageDialog(null, "No hay una fila seleccionada");
-            } else {
-                String query = "DELETE FROM producto WHERE id = ?";
+            String query = "DELETE FROM producto WHERE id = ?";
 
-                connection = conn.getConexion();
-                pst = connection.prepareStatement(query);
+            connection = conn.getConexion();
+            pst = connection.prepareStatement(query);
 
-                // Set the value for the parameter
-                pst.setInt(1, productId);
+            // Set the value for the parameter
+            pst.setInt(1, productId);
 
-                // Use executeUpdate without passing the query again
-                pst.executeUpdate();
+            // Use executeUpdate without passing the query again
+            pst.executeUpdate();
 
-                JOptionPane.showMessageDialog(null, "Producto eliminado exitosamente");
-                clean_table();
-            }
-        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Producto eliminado exitosamente");
             clean_table();
-        } finally {
-           if (pst != null) {
-                try {
-                    pst.close();
-                } catch (SQLException error) {
-                    error.printStackTrace();
-                }
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un ID de producto válido.");
+        }
+    } catch (SQLException e) {
+        System.out.println("Error while deleting product: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Error al eliminar producto");
+        clean_table();
+    } finally {
+        if (pst != null) {
+            try {
+                pst.close();
+            } catch (SQLException error) {
+                error.printStackTrace();
             }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException error) {
-                    error.printStackTrace();
-                }
+        }
+        if (connection != null) {
+            try {
+                connection.close();
+            } catch (SQLException error) {
+                error.printStackTrace();
             }
         }
     }
+}
 
     void clean_text() {
-        Id_Txt.setText("");
+        idproductoTXT.setText("");
         nameproductos.setText("");
         price.setText("");
         stock.setText("");
@@ -281,7 +284,7 @@ public class Productos extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         price = new javax.swing.JTextField();
         stock = new javax.swing.JTextField();
-        Id_Txt = new javax.swing.JTextField();
+        idproductoTXT = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -409,14 +412,14 @@ public class Productos extends javax.swing.JInternalFrame {
         stock.setForeground(new java.awt.Color(222, 222, 22));
         getContentPane().add(stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 63, 211, -1));
 
-        Id_Txt.setBackground(new java.awt.Color(1, 32, 99));
-        Id_Txt.setForeground(new java.awt.Color(222, 222, 22));
-        Id_Txt.addActionListener(new java.awt.event.ActionListener() {
+        idproductoTXT.setBackground(new java.awt.Color(1, 32, 99));
+        idproductoTXT.setForeground(new java.awt.Color(222, 222, 22));
+        idproductoTXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Id_TxtActionPerformed(evt);
+                idproductoTXTActionPerformed(evt);
             }
         });
-        getContentPane().add(Id_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 6, 213, -1));
+        getContentPane().add(idproductoTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 5, 213, 20));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 0, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/6204a337101f29a2b14dffd576fc32b3.png"))); // NOI18N
@@ -440,7 +443,7 @@ public class Productos extends javax.swing.JInternalFrame {
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
 
-    String productIdText = Id_Txt.getText();
+    String productIdText = idproductoTXT.getText();
     try {     
         productId = Integer.parseInt(productIdText);      
         delete();
@@ -448,7 +451,7 @@ public class Productos extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, "Por favor, ingrese un ID de producto válido.");
    }
     
-    Id_Txt.setText("");
+    idproductoTXT.setText("");
     }//GEN-LAST:event_deleteActionPerformed
 
     private void priceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceActionPerformed
@@ -463,18 +466,18 @@ public class Productos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nameproductosActionPerformed
 
-    private void Id_TxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Id_TxtActionPerformed
+    private void idproductoTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idproductoTXTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Id_TxtActionPerformed
+    }//GEN-LAST:event_idproductoTXTActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Id_Txt;
     private javax.swing.JButton add;
     private javax.swing.JButton clean;
     private javax.swing.JButton delete;
     private javax.swing.JButton edit;
     private javax.swing.JTextField id;
+    private javax.swing.JTextField idproductoTXT;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

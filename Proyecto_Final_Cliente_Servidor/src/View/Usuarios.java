@@ -231,7 +231,7 @@ public class Usuarios extends javax.swing.JInternalFrame {
                 CheckusersActionPerformed(evt);
             }
         });
-        getContentPane().add(Checkusers, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 83, 100, 30));
+        getContentPane().add(Checkusers, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 110, 30));
 
         eliminarbtn.setBackground(new java.awt.Color(51, 0, 0));
         eliminarbtn.setForeground(new java.awt.Color(255, 255, 255));
