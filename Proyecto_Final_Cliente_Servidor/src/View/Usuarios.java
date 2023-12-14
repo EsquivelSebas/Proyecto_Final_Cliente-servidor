@@ -223,41 +223,59 @@ public class Usuarios extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 125, 580, 181));
 
+        Checkusers.setBackground(new java.awt.Color(51, 0, 0));
+        Checkusers.setForeground(new java.awt.Color(255, 255, 255));
         Checkusers.setText("Check users");
         Checkusers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CheckusersActionPerformed(evt);
             }
         });
-        getContentPane().add(Checkusers, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 95, -1, -1));
+        getContentPane().add(Checkusers, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 83, 100, 30));
 
+        eliminarbtn.setBackground(new java.awt.Color(51, 0, 0));
+        eliminarbtn.setForeground(new java.awt.Color(255, 255, 255));
         eliminarbtn.setText("Delete");
         eliminarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(eliminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(298, 95, -1, -1));
+        getContentPane().add(eliminarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 83, 80, 30));
 
+        modificarbtn.setBackground(new java.awt.Color(51, 0, 0));
+        modificarbtn.setForeground(new java.awt.Color(255, 255, 255));
         modificarbtn.setText("Modify");
         modificarbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificarbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(modificarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, -1, -1));
-        getContentPane().add(IDTEXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 12, 45, -1));
+        getContentPane().add(modificarbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 83, 80, 30));
+        getContentPane().add(IDTEXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 80, -1));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 0));
         jLabel1.setText("ID:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 14, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 0, 0));
         jLabel2.setText("Email:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, -1, -1));
-        getContentPane().add(EMAILTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 60, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, -1));
 
+        EMAILTXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EMAILTXTActionPerformed(evt);
+            }
+        });
+        getContentPane().add(EMAILTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, 110, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 0, 0));
         jLabel3.setText("Password:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 14, -1, -1));
-        getContentPane().add(PASSTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 12, 68, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
+        getContentPane().add(PASSTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 100, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhatsApp Image 2023-12-13 at 22.49.30_f9160e33.jpg"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 130));
@@ -286,6 +304,10 @@ public class Usuarios extends javax.swing.JInternalFrame {
         modifyUser();
         clean_table();
     }//GEN-LAST:event_modificarbtnActionPerformed
+
+    private void EMAILTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EMAILTXTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EMAILTXTActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
