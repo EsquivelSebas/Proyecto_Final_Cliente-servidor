@@ -76,7 +76,7 @@
                 <Column editable="true" title="id" type="java.lang.Object"/>
                 <Column editable="true" title="name" type="java.lang.Object"/>
                 <Column editable="true" title="price" type="java.lang.Object"/>
-                <Column editable="true" title="quantity" type="java.lang.Object"/>
+                <Column editable="true" title="Stock" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -294,7 +294,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="63" green="20" red="1" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Quantity"/>
+        <Property name="text" type="java.lang.String" value="Stock"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

@@ -262,20 +262,20 @@ public class Usuarios extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 0, 0));
         jLabel2.setText("Email:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
 
         EMAILTXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EMAILTXTActionPerformed(evt);
             }
         });
-        getContentPane().add(EMAILTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, 110, -1));
+        getContentPane().add(EMAILTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 110, 20));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 0, 0));
         jLabel3.setText("Password:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
-        getContentPane().add(PASSTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 100, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
+        getContentPane().add(PASSTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, 100, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhatsApp Image 2023-12-13 at 22.49.30_f9160e33.jpg"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 130));
@@ -303,6 +303,7 @@ public class Usuarios extends javax.swing.JInternalFrame {
     private void modificarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarbtnActionPerformed
         modifyUser();
         clean_table();
+        retrieve();
     }//GEN-LAST:event_modificarbtnActionPerformed
 
     private void EMAILTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EMAILTXTActionPerformed

@@ -4,21 +4,89 @@
  */
 package View;
 
-/**
- *
- * @author sebaw
- */
+import Model.Connector;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Types;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class Ventas extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Ventas
-     */
+    Connector conn = new Connector();
+    Connection connection = conn.getConexion();
+    DefaultTableModel model;
+
+    DefaultTableModel model1;
+    PreparedStatement pst;
+    ResultSet rs;
+
     public Ventas() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setSize(868, 359);
         this.setResizable(false);
-        
+
+    }
+
+    void retrieve() {
+        clean_table();
+        String query = "select * from producto";
+
+        try {
+            connection = conn.getConexion();
+            pst = connection.prepareStatement(query);
+            rs = pst.executeQuery(query);
+            Object[] producto = new Object[4];
+            model = (DefaultTableModel) Checkproductsventas.getModel();
+            while (rs.next()) {
+                producto[0] = rs.getInt("id");
+                producto[1] = rs.getString("nombre");
+                producto[2] = rs.getInt("precio");
+                producto[3] = rs.getString("cantidad");
+
+                model.addRow(producto);
+            }
+            Checkproductsventas.setModel(model);
+        } catch (Exception e) {
+            System.out.println("Error while retrieving data: " + e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException error) {
+                    error.printStackTrace();
+                }
+            }
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException error) {
+                    error.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException error) {
+                    error.printStackTrace();
+                }
+            }
+        }
+    }
+
+    void clean_table() {
+        if (model != null) {
+            for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                model.removeRow(i);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Llenando la tabla....");
+        }
     }
 
     /**
@@ -34,7 +102,10 @@ public class Ventas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        Checkproductsventas = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,28 +127,62 @@ public class Ventas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 420, 200));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 420, 190));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        Checkproductsventas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Name", "Price", "Stock"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(Checkproductsventas);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 152, 430, 200));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 430, 190));
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-back-32.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 32));
+
+        jLabel2.setForeground(new java.awt.Color(51, 51, 55));
+        jLabel2.setText("Back");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        jButton2.setBackground(new java.awt.Color(222, 222, 222));
+        jButton2.setForeground(new java.awt.Color(51, 51, 55));
+        jButton2.setText("Check products");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/53405770-seamless-shopping-cart-pattern-background-texture.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+        PostLogin1 postgui = new PostLogin1();
+        postgui.setVisible(true);
+        DefaultTableModel model = new DefaultTableModel();
+        Checkproductsventas.setModel(model);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        retrieve();
+        //clean_table();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,11 +220,14 @@ public class Ventas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Checkproductsventas;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }

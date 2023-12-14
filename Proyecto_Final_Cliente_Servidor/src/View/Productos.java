@@ -305,7 +305,7 @@ public class Productos extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "id", "name", "price", "quantity"
+                "id", "name", "price", "Stock"
             }
         ));
         jScrollPane1.setViewportView(results);
@@ -393,7 +393,7 @@ public class Productos extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(1, 32, 99));
-        jLabel5.setText("Quantity");
+        jLabel5.setText("Stock");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, -1));
 
         price.setBackground(new java.awt.Color(1, 32, 99));

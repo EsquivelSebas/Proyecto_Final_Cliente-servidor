@@ -239,7 +239,6 @@ public class Despachadores extends javax.swing.JInternalFrame {
         Checkdispatcher = new javax.swing.JButton();
         updateDispatcher = new javax.swing.JButton();
         name_Txt = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         Id_txt12 = new javax.swing.JTextField();
         DelDispatcher = new javax.swing.JButton();
@@ -302,10 +301,6 @@ public class Despachadores extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(name_Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 80, -1));
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
-        jLabel3.setText("Modifying only!");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 90, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
         jLabel4.setText("ID:");
@@ -384,7 +379,6 @@ public class Despachadores extends javax.swing.JInternalFrame {
     private javax.swing.JLabel Namelabel;
     private javax.swing.JButton insertar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField name_Txt;
