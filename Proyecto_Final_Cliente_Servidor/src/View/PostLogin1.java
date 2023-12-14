@@ -37,45 +37,49 @@ public class PostLogin1 extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(236, 134, 38));
         jButton1.setText("Products");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 130, 60));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 130, 60));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(236, 134, 38));
         jButton2.setText("User");
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 130, 60));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 130, 60));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(236, 134, 38));
         jButton3.setText("Dispatchers");
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 130, 60));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 130, 60));
 
         jToggleButton1.setBackground(new java.awt.Color(255, 255, 255));
         jToggleButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jToggleButton1.setForeground(new java.awt.Color(236, 134, 38));
         jToggleButton1.setText("Shop");
+        jToggleButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 130, 60));
+        jPanel1.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 130, 60));
 
         postLogPanel.setBackground(new java.awt.Color(255, 255, 255));
         postLogPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/tienda-de-ultramarinos-los-iconos-web-para-el-diseno-de-la-interfaz-de-usuario-fhxrc7.jpg"))); // NOI18N
@@ -113,21 +117,21 @@ public class PostLogin1 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        Productos produc =new Productos();
        postLogPanel.add(produc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 280));
-       produc.setLocation(200, 100);
+       produc.setLocation(100, 100);
        produc.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Usuarios user = new Usuarios();
         postLogPanel.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 280));
-        user.setLocation(200, 100);
+        user.setLocation(100, 100);
         user.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
       Despachadores despachadoresgui = new Despachadores();
       postLogPanel.add(despachadoresgui, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 570));
-      despachadoresgui.setLocation(200, 100);
+      despachadoresgui.setLocation(100, 100);
       despachadoresgui.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
