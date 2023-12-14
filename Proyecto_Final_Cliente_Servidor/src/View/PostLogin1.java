@@ -23,6 +23,7 @@ public class PostLogin1 extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         postLogPanel = new javax.swing.JDesktopPane();
         jPanel2 = new javax.swing.JPanel();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -31,7 +32,7 @@ public class PostLogin1 extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(91, 110, 57));
         jButton1.setForeground(new java.awt.Color(46, 30, 32));
-        jButton1.setText("Productos");
+        jButton1.setText("Products");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -40,7 +41,7 @@ public class PostLogin1 extends javax.swing.JFrame {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(91, 110, 57));
-        jButton2.setText("Usuarios");
+        jButton2.setText("User");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -49,7 +50,7 @@ public class PostLogin1 extends javax.swing.JFrame {
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, -1));
 
         jButton3.setBackground(new java.awt.Color(91, 110, 57));
-        jButton3.setText("Despachadores");
+        jButton3.setText("Dispatchers");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -74,15 +75,29 @@ public class PostLogin1 extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(46, 30, 32));
 
+        jToggleButton1.setBackground(new java.awt.Color(46, 30, 32));
+        jToggleButton1.setText("Shop");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 910, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(400, 400, 400)
+                .addComponent(jToggleButton1)
+                .addContainerGap(451, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 230, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(194, Short.MAX_VALUE)
+                .addComponent(jToggleButton1)
+                .addContainerGap())
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 230));
@@ -118,6 +133,13 @@ public class PostLogin1 extends javax.swing.JFrame {
       postLogPanel.add(despachadoresgui, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 280));
       despachadoresgui.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        Ventas ventagui = new Ventas();
+        this.setVisible(false);
+        ventagui.setVisible(true);
+        
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,6 +182,7 @@ public class PostLogin1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JDesktopPane postLogPanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class Registro_User1 extends javax.swing.JFrame {
     public Registro_User1() {
         initComponents();
-        this.setSize(360, 224);
+        this.setSize(609, 308);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
     }
