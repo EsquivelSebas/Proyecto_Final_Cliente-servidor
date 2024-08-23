@@ -29,7 +29,7 @@ This system is designed to efficiently manage various products within a supermar
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/supermarket-system.git
+     git clone https://github.com/EsquivelSebas/Proyecto_Final_Cliente-servidor/tree/master
     ```
 2. Navigate to the project directory:
     ```bash
