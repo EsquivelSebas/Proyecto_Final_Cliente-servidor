@@ -29,39 +29,17 @@ This system is designed to efficiently manage various products within a supermar
 
 1. Clone the repository:
     ```bash
-     git clone https://github.com/EsquivelSebas/Proyecto_Final_Cliente-servidor/tree/master
+     git clone https://github.com/EsquivelSebas/Proyecto_Final_Cliente-servidor.git
     ```
-2. Navigate to the project directory:
-    ```bash
-    cd supermarket-system
+2. Unzip the archive file:
+    ```Netbeans, Eclipse
+    Open Project
     ```
-3. Install the necessary dependencies:
-    ```bash
-    npm install
-    ```
-4. Start the application:
-    ```bash
-    npm start
-    ```
-
 ==============================================================================================
 
 ## Usage
 
 - **Admin Panel**: Access the admin panel to manage products, users, and suppliers.
-- **Inventory Dashboard**: View real-time inventory levels and receive alerts for low stock or expiring products.
-- **Sales Overview**: Monitor sales trends and generate reports to help make informed business decisions.
-
-==============================================================================================
-
-## Contributing
-
-We welcome contributions! Please read our [contributing guidelines](CONTRIBUTING.md) for more details on how to get involved.
-
-==============================================================================================
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
+- **Inventory Dashboard**: View real-time inventory levels and categories.
+- 
 ==============================================================================================
